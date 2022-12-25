@@ -1,0 +1,19 @@
+server:
+  port: 8082
+spring:
+  jpa:
+    defer-datasource-initialization: true
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  kafka:
+    template:
+      default-topic: wallet3-synchronized-category
+    consumer:
+      bootstrap-servers:
+        - localhost:9092
+      key-deserializer: org.apache.kafka.common.serialization.IntegerDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      group-id: kyc-management
+      properties:
+        spring.json.trusted.packages: "*"

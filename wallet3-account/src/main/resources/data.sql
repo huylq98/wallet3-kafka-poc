@@ -1,0 +1,10 @@
+insert into category(code, name, is_deleted)
+values ('C1', 'Category 1', false);
+insert into category(code, name, is_deleted)
+values ('C2', 'Category 2', false);
+insert into category(code, name, is_deleted)
+values ('C3', 'Category 3', false);
+insert into category(code, name, is_deleted)
+values ('C4', 'Category 4', false);
+insert into category(code, name, is_deleted)
+values ('C5', 'Category 5', false);

@@ -1,0 +1,29 @@
+jmix:
+  core:
+    available-locales: en
+  ui:
+    composite-menu: true
+    login-screen-id: LoginScreen
+    main-screen-id: MainScreen
+    menu-config: vn/com/viettel/vds/wallet3/cms/menu.xml
+logging:
+  level:
+    eclipselink:
+      logging:
+        sql: info
+    io:
+      jmix: info
+      jmix.core.AccessLogger: debug
+    org:
+      atmosphere: warn
+main:
+  datasource:
+    password: ''
+    url: jdbc:hsqldb:file:.jmix/hsqldb/wallet3cms
+    username: sa
+feign:
+  client:
+    account-service:
+      host: localhost:8081
+    kyc-management-service:
+      host: localhost:8082

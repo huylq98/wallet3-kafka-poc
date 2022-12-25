@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://jmix.io/schema/ui/window"
+        caption="msg://registrationInformationBrowse.caption"
+        focusComponent="registrationInformationsTable">
+    <data readOnly="true">
+        <collection id="registrationInformationsDc"
+                    class="vn.com.viettel.vds.wallet3.cms.entity.RegistrationInformation">
+            <loader id="registrationInformationsDl"/>
+        </collection>
+    </data>
+    <facets>
+        <dataLoadCoordinator auto="true"/>
+        <screenSettings id="settingsFacet" auto="true"/>
+    </facets>
+    <actions>
+        <action id="lookupSelectAction"
+                caption="msg:///actions.Select"
+                icon="LOOKUP_OK"
+                primary="true"
+                shortcut="${COMMIT_SHORTCUT}"/>
+        <action id="lookupCancelAction"
+                caption="msg:///actions.Cancel"
+                icon="LOOKUP_CANCEL"/>
+    </actions>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="registrationInformationsTable" spacing="true">
+        <dataGrid id="registrationInformationsTable"
+                  width="100%"
+                  dataContainer="registrationInformationsDc">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+            </actions>
+            <columns>
+                <column property="id" id="id"/>
+                <column property="category" id="category"/>
+                <column property="code" id="code"/>
+            </columns>
+            <simplePagination/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="registrationInformationsTable.create"/>
+                <button id="editBtn" action="registrationInformationsTable.edit"/>
+                <button id="removeBtn" action="registrationInformationsTable.remove"/>
+            </buttonsPanel>
+        </dataGrid>
+        <pagination id="pagination"
+                    maxVisiblePages="3"
+                    itemsPerPageDefaultValue="5"
+                    itemsPerPageOptions="5,10,15">
+            <loaderProvider loaderId="registrationInformationsDl"/>
+        </pagination>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>

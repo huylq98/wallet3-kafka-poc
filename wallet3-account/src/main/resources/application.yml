@@ -1,0 +1,19 @@
+server:
+  port: 8081
+spring:
+  jpa:
+    defer-datasource-initialization: true
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  kafka:
+    properties:
+      max.block.ms: 1000
+      retry.backoff.ms: 3000
+    template:
+      default-topic: wallet3-synchronized-category
+    producer:
+      bootstrap-servers:
+        - localhost:9092
+      key-serializer: org.apache.kafka.common.serialization.IntegerSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
