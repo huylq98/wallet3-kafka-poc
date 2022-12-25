@@ -1,7 +1,7 @@
 package vn.com.viettel.vds.wallet3.cms.screen.category;
 
 import io.jmix.core.LoadContext;
-import io.jmix.ui.component.Button;
+import io.jmix.ui.action.Action;
 import io.jmix.ui.component.DataGrid;
 import io.jmix.ui.component.Pagination;
 import io.jmix.ui.model.CollectionLoader;
@@ -44,8 +44,8 @@ public class CategoryBrowse extends StandardLookup<Category> {
         return accountFeignClient.findAllCategories(PageRequest.of(0, Integer.MAX_VALUE)).getTotalElements();
     }
 
-    @Subscribe("removeBtn")
-    public void onRemoveBtnClick(Button.ClickEvent event) {
+    @Subscribe("categoriesTable.remove")
+    public void onCategoriesTableRemove(Action.ActionPerformedEvent event) {
         accountFeignClient.delete(categoriesTable.getSingleSelected().getId());
     }
 }

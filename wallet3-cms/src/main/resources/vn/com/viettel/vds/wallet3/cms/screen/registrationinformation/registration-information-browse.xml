@@ -35,7 +35,7 @@
             </actions>
             <columns>
                 <column property="id" id="id"/>
-                <column property="category" id="category"/>
+                <column property="categoryCode" id="category"/>
                 <column property="code" id="code"/>
             </columns>
             <simplePagination/>
