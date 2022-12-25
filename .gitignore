@@ -31,3 +31,7 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Jmix ###
+.jmix/
+jmix-studio.xml
